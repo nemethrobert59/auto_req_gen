@@ -17,8 +17,8 @@ def get_first_level_subfolders(root_path):
     return first_level_subfolders
 
 def execute_command(req_file_path):
-    command = ['pip install', req_file_path]
-    print("Executing command:", command[0] + " " + command[1])
+    command = ['pip', 'install', '-r', req_file_path]
+    print("Executing command:", command[0] + " " + command[1] + " " + command[2] + " " + command[3])
     subprocess.check_call(command)
 
 def main():
@@ -31,7 +31,10 @@ def main():
     for first_level_subfolder in first_level_subfolders:
         req_file_path = os.path.join(YOUR_ROOT_PATH,first_level_subfolder,'requirements.txt')
         print(req_file_path)
-        execute_command(req_file_path)
+        try:
+            execute_command(req_file_path)
+        except Exception as e:
+            print("An error occurred while executing the command:", e)
 
 if __name__ == "__main__":
     main()
