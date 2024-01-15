@@ -1,28 +1,27 @@
-# AutoReqGen: Automatic Python Requirements File Generator
+# Python Multi-Repository Requirements Management Tools
 
-## Introduction
+This repository hosts two powerful Python scripts that are crafted to streamline dependency management across multiple GitHub repositories. The `requirements_generator.py` script is adept at traversing through several repositories, automatically generating a `requirements.txt` file for each. Meanwhile, the `requirements_installer.py` script efficiently installs dependencies from these `requirements.txt` files across all specified repositories. This toolset is ideal for managing dependencies in complex projects involving multiple repositories, ensuring consistency and ease of setup.
 
-Welcome to **AutoReqGen**, an automated tool designed to simplify the process of generating `requirements.txt` files for Python projects hosted on GitHub. This tool scans through all Python files in a repository, identifies imported libraries, and automatically generates a comprehensive `requirements.txt` file.
+## Scripts
 
-## Features
+### 1. requirements_generator.py
 
-- **Automated Scanning:** Scans all `.py` files in a GitHub repository to extract imported libraries.
-- **Version Detection:** Determines the current version of each library.
-- **Requirements File Generation:** Automatically creates a `requirements.txt` file with libraries and their versions.
+This script automatically scans a Python projects and generates a `requirements.txt` file. It identifies all the external libraries used in the project and lists them with their corresponding versions.
 
-## How It Works
+#### Usage
 
-1. **Repository Scanning:** Scans the specified GitHub repository, locating all `.py` files.
-2. **Library Extraction:** Identifies all libraries imported in these Python files using the `import` keyword.
-3. **Version Checking:** Checks the latest available version for each library.
-4. **File Creation:** Generates a `requirements.txt` file, listing all libraries with their respective versions.
+```bash
+python requirements_generator.py --root_path <path_to_python_project>
+```
 
+### 2. requirements_installer.py
+This script reads a requirements.txt files and installs all the listed Python packages. It's a convenient way to ensure that all necessary dependencies are installed for a project.
+
+#### Usage
+
+```bash
+python requirements_installer.py --root_path <path_to_python_project>
+```
 ## Installation
+No additional installation is required for these scripts, as they are standalone Python scripts. However, they do assume that Python is already installed on your system.
 
-```bash
-# Instructions on how to install AutoReqGen
-```
-## Usage
-```bash
-# Step-by-step guide on how to use AutoReqGen with examples
-```
